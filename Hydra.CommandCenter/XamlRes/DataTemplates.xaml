@@ -1,0 +1,15 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:src="clr-namespace:Hydra.CommandCenter"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <DataTemplate DataType="src:ProjectViewModel">
+        <src:ProjectListEntryView/>
+    </DataTemplate>
+
+    <DataTemplate x:Key="TestTemplate">
+        <Grid>
+            <!--<TextBlock Text="Meow"/>-->
+            <Rectangle Width="100" Height="100" Fill="Red"/>
+        </Grid>
+    </DataTemplate>
+</ResourceDictionary>

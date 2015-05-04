@@ -1,0 +1,155 @@
+﻿<UserControl x:Class="Hydra.CommandCenter.ClientMetricsDetailView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:src="clr-namespace:Hydra.CommandCenter"
+             xmlns:ag="clr-namespace:WpfAutoGrid;assembly=WpfAutoGrid">
+
+    <!--DataContext is of type ClientStatsResource-->
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../XamlRes/Common.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <ScrollViewer>
+        <ag:AutoGrid ColumnCount="2" RowCount="40" Columns="200,*">
+
+            <TextBlock Text="Process Href:"/>
+            <TextBlock Text="{Binding Process.Href}"/>
+
+            <TextBlock Text="Name:"/>
+            <TextBlock Text="{Binding Name}"/>
+
+            <TextBlock Text="Connection State:"/>
+            <TextBlock Text="{Binding ConnectionState}"/>
+
+            <TextBlock Text="Transport:"/>
+            <TextBlock Text="{Binding Transport}"/>
+
+            <TextBlock Text="Last Updated:"/>
+            <TextBlock Text="{Binding Timestamp}"/>
+
+            <TextBlock Text="Server Location:"/>
+            <TextBlock Text="{Binding ServerLocation.Name}"/>
+
+            <TextBlock Text="Server sends data every:"/>
+            <TextBlock>
+                <Run Text="{Binding ServerSendPayloadInterval, StringFormat={}{0:0}}"/>
+                <Run Text="ms"/>
+            </TextBlock>
+
+            <TextBlock Text="Server payload size:"/>
+            <TextBlock>
+                <Run Text="{Binding ServerPayloadSizeKiloBytes}"/>
+                <Run Text="kbytes"/>
+            </TextBlock>
+
+
+            <TextBlock Text="Availability:" Margin="0,20,0,0" Grid.ColumnSpan="2"/>
+
+            <TextBlock Text="Disconnect Count:"/>
+            <TextBlock Text="{Binding Availability.DisconnectCount}"/>
+
+            <TextBlock Text="Connection Establishment Failures:"/>
+            <TextBlock Text="{Binding Availability.ConnectionEstablishmentFailCount}"/>
+            
+            <TextBlock Text="Ping Failures:"/>
+            <TextBlock Text="{Binding Availability.PingFailures}"/>
+
+            <TextBlock Text="Last Payload Received:"/>
+            <TextBlock Text="{Binding Availability.LastPayloadReceived}"/>
+
+
+
+            <TextBlock Text="Integrity:" Margin="0,20,0,0" Grid.ColumnSpan="2"/>
+
+            <TextBlock Text="Last server payload index:"/>
+            <TextBlock Text="{Binding DataIntegrity.LastServerPayloadIndex}"/>
+
+            <TextBlock Text="Last received payload sequence:"/>
+            <TextBlock Text="{Binding DataIntegrity.PayloadSequence}"/>
+
+            <TextBlock Text="Number of payloads received:"/>
+            <TextBlock Text="{Binding DataIntegrity.PayloadCount}"/>
+
+            <TextBlock Text="Number of payloads data errors:"/>
+            <TextBlock Text="{Binding DataIntegrity.PayloadDataErrors}"/>
+
+            <TextBlock Text="Number of payloads sequence errors:"/>
+            <TextBlock Text="{Binding DataIntegrity.PayloadSequenceErrors}"/>
+
+            <TextBlock Text="Total bytes received:"/>
+            <TextBlock Text="{Binding DataIntegrity.TotalBytesReceived}"/>
+
+
+            <TextBlock Grid.ColumnSpan="2" Text="Ping" Margin="0,20,0,0"/>
+
+            <TextBlock Text="Last Sample:"/>
+            <TextBlock>
+                <Run Text="{Binding Ping.LastSample, StringFormat={}{0:0.00}}"/>
+                <Run Text="ms"/>
+            </TextBlock>
+
+            <TextBlock Text="Running Average:"/>
+            <TextBlock>
+                <Run Text="{Binding Ping.RunningAverage, StringFormat={}{0:0.00}}"/>
+                <Run Text="ms"/>
+            </TextBlock>
+
+            <TextBlock Text="Running Std Dev:"/>
+            <TextBlock>
+                <Run Text="{Binding Ping.RunningStandardDeviation, StringFormat={}{0:0.00}}"/>
+                <Run Text="ms"/>
+            </TextBlock>
+
+            <TextBlock Text="Lifetime Max:"/>
+            <TextBlock>
+                <Run Text="{Binding Ping.LifetimeMax, StringFormat={}{0:0.00}}"/>
+                <Run Text="ms"/>
+            </TextBlock>
+
+            <TextBlock Text="Lifetime Min:"/>
+            <TextBlock>
+                <Run Text="{Binding Ping.LifetimeMin, StringFormat={}{0:0.00}}"/>
+                <Run Text="ms"/>
+            </TextBlock>
+
+
+
+            <TextBlock Grid.ColumnSpan="2" Text="Time between receiving data" Margin="0,20,0,0"/>
+
+            <TextBlock Text="Last Sample:"/>
+            <TextBlock>
+                <Run Text="{Binding PayloadReceiveInterval.LastSample, StringFormat={}{0:0.00}}"/>
+                <Run Text="ms"/>
+            </TextBlock>
+
+            <TextBlock Text="Running Average:"/>
+            <TextBlock>
+                <Run Text="{Binding PayloadReceiveInterval.RunningAverage, StringFormat={}{0:0.00}}"/>
+                <Run Text="ms"/>
+            </TextBlock>
+
+            <TextBlock Text="Running Std Dev:"/>
+            <TextBlock>
+                <Run Text="{Binding PayloadReceiveInterval.RunningStandardDeviation, StringFormat={}{0:0.00}}"/>
+                <Run Text="ms"/>
+            </TextBlock>
+
+            <TextBlock Text="Lifetime Max:"/>
+            <TextBlock>
+                <Run Text="{Binding PayloadReceiveInterval.LifetimeMax, StringFormat={}{0:0.00}}"/>
+                <Run Text="ms"/>
+            </TextBlock>
+
+            <TextBlock Text="Lifetime Min:"/>
+            <TextBlock>
+                <Run Text="{Binding PayloadReceiveInterval.LifetimeMin, StringFormat={}{0:0.00}}"/>
+                <Run Text="ms"/>
+            </TextBlock>
+
+        </ag:AutoGrid>
+    </ScrollViewer>
+</UserControl>

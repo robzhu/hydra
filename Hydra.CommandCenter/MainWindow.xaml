@@ -1,0 +1,42 @@
+﻿<Controls:MetroWindow x:Class="Hydra.CommandCenter.MainWindow"
+                      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                      xmlns:src="clr-namespace:Hydra.CommandCenter"
+                      xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+                      Title="Stream Test Command Center" Height="720" Width="1280"
+                      Closing="OnWindowClosing">
+    <Controls:MetroWindow.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="XamlRes/Common.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Controls:MetroWindow.Resources>
+    
+    <Border Background="#10000000">
+        <Grid Margin="8">
+            <Controls:MetroAnimatedTabControl>
+                <TabItem Header="Monitor">
+                    <src:MainTabView/>
+                </TabItem>
+
+                <TabItem Header="Map">
+                    <src:MapTabView DataContext="{Binding Map}"/>
+                </TabItem>
+
+                <TabItem Header="Deploy">
+                    <src:DeployTabView DataContext="{Binding Deployment}"/>
+                </TabItem>
+
+                <TabItem Header="Clients">
+                    <src:ClientMetricsTabView DataContext="{Binding ClientMetrics}"/>
+                </TabItem>
+
+                <TabItem Header="Console">
+                    <src:ConsoleTabView DataContext="{Binding LogVM}"/>
+                </TabItem>
+            </Controls:MetroAnimatedTabControl>
+        </Grid>
+    </Border>
+    
+</Controls:MetroWindow>

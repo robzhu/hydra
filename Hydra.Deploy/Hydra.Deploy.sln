@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hydra.Deploy", "Hydra.Deploy.csproj", "{E9252EC5-2B84-467B-9265-DCF44322312A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Marionette.Driver", "..\Marionette.Driver\Marionette.Driver.csproj", "{40EAE98B-AB3D-4642-ABC4-9091530BBDFC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E9252EC5-2B84-467B-9265-DCF44322312A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E9252EC5-2B84-467B-9265-DCF44322312A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E9252EC5-2B84-467B-9265-DCF44322312A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E9252EC5-2B84-467B-9265-DCF44322312A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{40EAE98B-AB3D-4642-ABC4-9091530BBDFC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{40EAE98B-AB3D-4642-ABC4-9091530BBDFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{40EAE98B-AB3D-4642-ABC4-9091530BBDFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{40EAE98B-AB3D-4642-ABC4-9091530BBDFC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

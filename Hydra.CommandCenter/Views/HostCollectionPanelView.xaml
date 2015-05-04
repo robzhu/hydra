@@ -1,0 +1,47 @@
+﻿<UserControl x:Class="Hydra.CommandCenter.HostCollectionPanelView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:src="clr-namespace:Hydra.CommandCenter">
+
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../XamlRes/Common.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <Border Style="{StaticResource PanelBorder}">
+        <Grid Margin="8">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Grid.Row="0" Text="Hosts" Style="{StaticResource SubtitleTextStyle}"/>
+
+            <Grid Grid.Row="1" Margin="8">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <src:IconLinkButton Grid.Column="0" Text="Add Host" Icon="Plus"
+                                    Command="{Binding AddHostCommand}"/>
+
+                <src:IconLinkButton Grid.Column="1" Text="Remove Host" Icon="Close"
+                                    Command="{Binding RemoveHostCommand}" />
+            </Grid>
+
+            <ListBox Grid.Row="2" ItemsSource="{Binding Hosts}" SelectedItem="{Binding SelectedHost}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <src:HostAppView/>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </Grid>
+    </Border>
+</UserControl>

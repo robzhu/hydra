@@ -1,0 +1,66 @@
+﻿<UserControl x:Class="Hydra.CommandCenter.ClientMetricsTabView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:src="clr-namespace:Hydra.CommandCenter"
+             xmlns:fa="http://schemas.fontawesome.io/icons/"
+             xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" d:DesignHeight="720" d:DesignWidth="1280">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../XamlRes/Common.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    
+    <Grid Margin="8">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+
+        <Border Grid.Column="0" Style="{StaticResource PanelBorder}">
+            <Grid Margin="8">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Grid.Row="0" Text="Client Metric Details" Style="{StaticResource SubtitleTextStyle}"/>
+
+                <TextBlock Grid.Row="1" Text="{Binding SelectedClient.Data.Name}" Style="{StaticResource SubtitleTextStyle}"/>
+
+                <Border Grid.Row="2"  Visibility="{Binding SelectedClient, Converter={StaticResource VisibleIfNotNullConverter}}">
+                    <src:ClientMetricsDetailView DataContext="{Binding SelectedClient.Data}"/>
+                </Border>
+            </Grid>
+        </Border>
+
+        <Border Grid.Column="1" Style="{StaticResource PanelBorder}">
+            <Grid Margin="8">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Grid.Row="0" Text="Clients" Style="{StaticResource SubtitleTextStyle}"/>
+
+                <ListBox Grid.Row="2" ItemsSource="{Binding HostCollection.SelectedHost.Model.Clients}" SelectedItem="{Binding SelectedClient}">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Data.Name}"/>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </Grid>
+        </Border>
+
+        <src:HostCollectionPanelView Grid.Column="2" DataContext="{Binding HostCollection}"/>
+        
+    </Grid>
+</UserControl>

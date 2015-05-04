@@ -1,0 +1,136 @@
+﻿<UserControl x:Class="Hydra.CommandCenter.HostResourceView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:ig="http://schemas.infragistics.com/xaml">
+    
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../XamlRes/Common.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <Grid Margin="16,0,16,16" DataContext="{Binding ResourceUsage}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <ig:XamDataChart Grid.Row="0"
+                         Margin="0,0,0,12"
+                         Background="Transparent"
+                         HorizontalZoomable="True"
+                         VerticalZoomable="True"
+                         AlignsGridLinesToPixels="True">
+
+            <ig:XamDataChart.Axes>
+
+                <ig:CategoryXAxis Name="xmXAxis" ItemsSource="{Binding}" Label="{}{Label}">
+                    <ig:CategoryXAxis.LabelSettings >
+                        <ig:AxisLabelSettings Location="OutsideTop" Extent="35" />
+                    </ig:CategoryXAxis.LabelSettings>
+                </ig:CategoryXAxis>
+
+                <ig:NumericYAxis x:Name="xmYAxis" 
+                                 MinimumValue="0"
+                                 MaximumValue="100">
+                    <ig:NumericYAxis.LabelSettings>
+                        <ig:AxisLabelSettings Location="OutsideLeft" Extent="55" />
+                    </ig:NumericYAxis.LabelSettings>
+                </ig:NumericYAxis>
+
+            </ig:XamDataChart.Axes>
+
+            <ig:XamDataChart.Series>
+                <ig:AreaSeries ValueMemberPath="Value.CpuUsagePercent" 
+                               IsTransitionInEnabled="False" Thickness="1" AreaFillOpacity="0.5"
+                               ItemsSource="{Binding}" 
+                               XAxis="{Binding ElementName=xmXAxis}" 
+                               YAxis="{Binding ElementName=xmYAxis}">
+                </ig:AreaSeries>
+            </ig:XamDataChart.Series>
+        </ig:XamDataChart>
+
+        <ig:XamDataChart Grid.Row="1"
+                         Margin="0,0,0,12"
+                         Background="Transparent"
+                         HorizontalZoomable="True"
+                         VerticalZoomable="True">
+            <ig:XamDataChart.Axes>
+
+                <ig:CategoryXAxis Name="xmXAxis2" ItemsSource="{Binding}" Label="{}{Label}">
+                    <ig:CategoryXAxis.LabelSettings >
+                        <ig:AxisLabelSettings Location="OutsideTop" Extent="35" />
+                    </ig:CategoryXAxis.LabelSettings>
+                </ig:CategoryXAxis>
+
+                <ig:NumericYAxis x:Name="xmYAxis2" 
+                                 MinimumValue="0"
+                                 MaximumValue="100">
+                    <ig:NumericYAxis.LabelSettings>
+                        <ig:AxisLabelSettings Location="OutsideLeft" Extent="55" />
+                    </ig:NumericYAxis.LabelSettings>
+                </ig:NumericYAxis>
+
+            </ig:XamDataChart.Axes>
+
+            <ig:XamDataChart.Series>
+                <ig:AreaSeries/>
+                <ig:AreaSeries/>
+
+                <ig:AreaSeries ValueMemberPath="Value.RamUsedPercent" 
+                               IsTransitionInEnabled="False" Thickness="1" AreaFillOpacity="0.5"
+                               ItemsSource="{Binding}" 
+                               XAxis="{Binding ElementName=xmXAxis2}" 
+                               YAxis="{Binding ElementName=xmYAxis2}">
+                </ig:AreaSeries>
+            </ig:XamDataChart.Series>
+        </ig:XamDataChart>
+
+        <ig:XamDataChart Grid.Row="2"
+                         Background="Transparent"
+                         HorizontalZoomable="True"
+                         VerticalZoomable="True">
+            <ig:XamDataChart.Axes>
+
+                <ig:CategoryXAxis Name="xmXAxis3" ItemsSource="{Binding}" Label="{}{Label}">
+                    <ig:CategoryXAxis.LabelSettings >
+                        <ig:AxisLabelSettings Location="OutsideTop" Extent="35" />
+                    </ig:CategoryXAxis.LabelSettings>
+                </ig:CategoryXAxis>
+
+                <ig:NumericYAxis x:Name="xmYAxis3" 
+                                 MinimumValue="0"
+                                 MaximumValue="100">
+                    <ig:NumericYAxis.LabelSettings>
+                        <ig:AxisLabelSettings Location="OutsideLeft" Extent="55" />
+                    </ig:NumericYAxis.LabelSettings>
+                </ig:NumericYAxis>
+
+            </ig:XamDataChart.Axes>
+
+            <ig:XamDataChart.Series>
+                <ig:AreaSeries/>
+                <ig:AreaSeries/>
+                <ig:AreaSeries/>
+
+                <ig:AreaSeries ValueMemberPath="Value.Network.SendMbps" 
+                               IsTransitionInEnabled="False" Thickness="1" AreaFillOpacity="0.5"
+                               ItemsSource="{Binding}" 
+                               XAxis="{Binding ElementName=xmXAxis3}" 
+                               YAxis="{Binding ElementName=xmYAxis3}">
+                </ig:AreaSeries>
+
+                <ig:AreaSeries ValueMemberPath="Value.Network.ReceiveMbps" 
+                               IsTransitionInEnabled="False" Thickness="1" AreaFillOpacity="0.5"
+                               ItemsSource="{Binding}" 
+                               XAxis="{Binding ElementName=xmXAxis3}" 
+                               YAxis="{Binding ElementName=xmYAxis3}">
+                </ig:AreaSeries>
+            </ig:XamDataChart.Series>
+        </ig:XamDataChart>
+
+    </Grid>
+</UserControl>

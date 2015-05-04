@@ -1,0 +1,6 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:rzwpf="clr-namespace:RzWpf;assembly=RzWpf"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <rzwpf:ReferenceNullToVisibilityConverter x:Key="VisibleIfNotNullConverter" NonNullValue="Visible" NullValue="Hidden"/>
+</ResourceDictionary>

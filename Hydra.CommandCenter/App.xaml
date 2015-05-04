@@ -1,0 +1,24 @@
+﻿<Application x:Class="Hydra.CommandCenter.App" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" StartupUri="MainWindow.xaml" xmlns:ig="http://infragistics.com/Themes">
+  <Application.Resources>
+    <ResourceDictionary>
+      <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Fonts.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Colors.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/Blue.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/BaseLight.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.AnimatedTabControl.xaml" />
+        <ig:ResourceWasher WashMode="SoftLightBlend" WashColor="#00FFFFFF">
+          <ig:ResourceWasher.SourceDictionary>
+            <ResourceDictionary Source="Themes/Metro/Metro.DataVisualization.xaml" />
+          </ig:ResourceWasher.SourceDictionary>
+        </ig:ResourceWasher>
+        <ig:ResourceWasher WashMode="SoftLightBlend" WashColor="#00FFFFFF">
+          <ig:ResourceWasher.SourceDictionary>
+            <ResourceDictionary Source="Themes/Metro/Metro.xamDataChart.xaml" />
+          </ig:ResourceWasher.SourceDictionary>
+        </ig:ResourceWasher>
+      </ResourceDictionary.MergedDictionaries>
+    </ResourceDictionary>
+  </Application.Resources>
+</Application>
