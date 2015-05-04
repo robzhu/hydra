@@ -1,5 +1,5 @@
 ﻿
-namespace Hydra.Shared
+namespace Marionette.Driver
 {
     public class Pong
     {
@@ -9,6 +9,6 @@ namespace Hydra.Shared
         public int DurationMilliseconds { get; set; }
         public int PayloadSizeBytes { get; set; }
 
-        public Location Location { get; set; }
+        public LocationResource Location { get; set; }
     }
 }

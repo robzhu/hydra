@@ -33,10 +33,7 @@
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Location.cs" />
     <Compile Include="Payload.cs" />
-    <Compile Include="ClientStats.cs" />
-    <Compile Include="Pong.cs" />
     <Compile Include="Statistic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

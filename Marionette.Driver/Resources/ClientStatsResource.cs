@@ -38,8 +38,8 @@ namespace Marionette.Driver
         public Statistic PayloadReceiveInterval { get; set; }
         public int ServerSendPayloadInterval { get; set; }
         public int ServerPayloadSizeKiloBytes { get; set; }
-        public Location ServerLocation { get; set; }
-        public Location ClientLocation { get; set; }
+        public LocationResource ServerLocation { get; set; }
+        public LocationResource ClientLocation { get; set; }
 
         public AvailabilityStats Availability { get; set; }
         public IntegrityStats DataIntegrity { get; set; }

@@ -11,20 +11,20 @@ namespace Hydra.Server
     {
         static Client Client = new Client( "localhost" );
 
-        static Location _Location;
-        static Location Location
+        static LocationResource _Location;
+        static LocationResource Location
         {
             get
             {
                 if( _Location == null )
                 {
                     var locationResource = Client.GetHostLocationAsync().Result;
-                    _Location = new Location
+                    _Location = new LocationResource
                     {
                         AzureRegion = locationResource.AzureRegion,
                         Latitude = locationResource.Latitude,
                         Longitude = locationResource.Longitude,
-                        Name = locationResource.Location,
+                        Name = locationResource.Name,
                     };
                 }
                 return _Location;

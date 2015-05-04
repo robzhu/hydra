@@ -76,8 +76,15 @@ namespace Marionette
             string url = BuildLink( new { controller = ProcessController.Prefix, id = model.Id } );
             model.Process = url;
             model.Href = BuildLink( new { controller = Prefix, id = model.Id } );
-            model.ClientLocation = LocationController.
+            model.ClientLocation = ConvertToResource( LocationProvider.Location );
             return model;
+        }
+
+        private LocationResource ConvertToResource( LocationModel model )
+        {
+            LocationResource resource = Mapper.Map<LocationResource>( model );
+            resource.Href = BuildLink( new { controller = LocationController.Prefix } );
+            return resource;
         }
     }
 }

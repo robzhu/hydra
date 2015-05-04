@@ -9,7 +9,7 @@ namespace Marionette
     {
         public int Id { get; set; }
         public string AzureRegion { get; set; }
-        public string Location { get; set; }
+        public string Name { get; set; }
         public double Latitude { get; set; }
         public double Longitude { get; set; }
     }
@@ -32,7 +32,7 @@ namespace Marionette
             {
                 Id = 0,
                 AzureRegion = "None (Eze Boston)",
-                Location = "Massachusetts",
+                Name = "Massachusetts",
                 Latitude = 42.351,
                 Longitude = -71.049,
             };
@@ -41,7 +41,7 @@ namespace Marionette
             {
                 Id = 1,
                 AzureRegion = "East US",
-                Location = "Virginia",
+                Name = "Virginia",
                 Latitude = 37.431,
                 Longitude = -78.657,
             };
@@ -50,7 +50,7 @@ namespace Marionette
             {
                 Id = 2,
                 AzureRegion = "Central US",
-                Location = "Iowa",
+                Name = "Iowa",
                 Latitude = 41.878,
                 Longitude = -93.098,
             };
@@ -59,7 +59,7 @@ namespace Marionette
             {
                 Id = 3,
                 AzureRegion = "North Central US",
-                Location = "Illinois",
+                Name = "Illinois",
                 Latitude = 40.633,
                 Longitude = -89.399,
             };
@@ -68,7 +68,7 @@ namespace Marionette
             {
                 Id = 4,
                 AzureRegion = "South Central US",
-                Location = "Texas",
+                Name = "Texas",
                 Latitude = 31.969,
                 Longitude = -99.902,
             };
@@ -77,7 +77,7 @@ namespace Marionette
             {
                 Id = 5,
                 AzureRegion = "West US",
-                Location = "California",
+                Name = "California",
                 Latitude = 36.778,
                 Longitude = -119.418,
             };
@@ -86,7 +86,7 @@ namespace Marionette
             {
                 Id = 6,
                 AzureRegion = "West Europe",
-                Location = "Netherlands",
+                Name = "Netherlands",
                 Latitude = 52.133,
                 Longitude = 5.291,
             };
@@ -95,7 +95,7 @@ namespace Marionette
             {
                 Id = 7,
                 AzureRegion = "East Asia",
-                Location = "Hong Kong",
+                Name = "Hong Kong",
                 Latitude = 22.396,
                 Longitude = 114.109,
             };
@@ -104,7 +104,7 @@ namespace Marionette
             {
                 Id = 8,
                 AzureRegion = "Southeast Asia",
-                Location = "Singapore",
+                Name = "Singapore",
                 Latitude = 1.352,
                 Longitude = 103.820,
             };
@@ -113,7 +113,7 @@ namespace Marionette
             {
                 Id = 9,
                 AzureRegion = "Japan East",
-                Location = "Saitama Prefecture",
+                Name = "Saitama Prefecture",
                 Latitude = 35.857,
                 Longitude = 139.649,
             };
@@ -122,7 +122,7 @@ namespace Marionette
             {
                 Id = 10,
                 AzureRegion = "Japan West",
-                Location = "Osaka Prefecture",
+                Name = "Osaka Prefecture",
                 Latitude = 34.686,
                 Longitude = 135.520,
             };
@@ -131,7 +131,7 @@ namespace Marionette
             {
                 Id = 11,
                 AzureRegion = "Brazil South",
-                Location = "Sao Paulo State",
+                Name = "Sao Paulo State",
                 Latitude = -23.543,
                 Longitude = -46.629,
             };
@@ -140,7 +140,7 @@ namespace Marionette
             {
                 Id = 12,
                 AzureRegion = "Australia East",
-                Location = "New South Wales",
+                Name = "New South Wales",
                 Latitude = -33.864,
                 Longitude = 151.205,
             };
@@ -149,7 +149,7 @@ namespace Marionette
             {
                 Id = 13,
                 AzureRegion = "Australia Southeast",
-                Location = "Victoria",
+                Name = "Victoria",
                 Latitude = -37.471,
                 Longitude = 144.785,
             };
