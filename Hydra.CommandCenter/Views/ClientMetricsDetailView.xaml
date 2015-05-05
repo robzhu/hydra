@@ -31,6 +31,9 @@
             <TextBlock Text="Last Updated:"/>
             <TextBlock Text="{Binding Timestamp}"/>
 
+            <TextBlock Text="Client Location:"/>
+            <TextBlock Text="{Binding ClientLocation.Name}"/>
+
             <TextBlock Text="Server Location:"/>
             <TextBlock Text="{Binding ServerLocation.Name}"/>
 

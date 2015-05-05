@@ -8,7 +8,7 @@ namespace Marionette
 
         static LocationProvider()
         {
-            Location = Locations.Data[ 1 ];
+            Location = Locations.Data[ 0 ];
         }
 
         internal static void SetOrPrompt( string[] args )

@@ -14,8 +14,8 @@ namespace Hydra.Server
 
             config.UseJsonSerialization();
             config.Routes.MapHttpRoute( "health", "health", defaults: new { controller = "Health" } );
-            config.Routes.MapHttpRoute( DefaultApiRouteName, "{controller}/{id}", defaults: new { controller = "Root", id = RouteParameter.Optional } );
-            //config.Routes.MapHttpRoute( DefaultApiRouteName, "{controller}/{id}", defaults: new { id = RouteParameter.Optional } );
+            config.Routes.MapHttpRoute( DefaultApiRouteName, "api/{controller}/{id}", defaults: new { controller = "Root", id = RouteParameter.Optional } );
+            //config.Routes.MapHttpRoute( DefaultApiRouteName, "api/{controller}/{id}", defaults: new { id = RouteParameter.Optional } );
             config.MapHttpAttributeRoutes();
 
             config.EnableSwagger( c =>

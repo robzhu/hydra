@@ -24,18 +24,6 @@
 
         <Border Grid.Column="0" Grid.ColumnSpan="2" Style="{StaticResource PanelBorder}">
             <Grid>
-                <!--<ig:XamMap x:Name="Map" Visibility="Collapsed">
-                    <ig:XamMap.MapTileSource>
-                        <ig:OpenStreetMapTileSource/>
-                    </ig:XamMap.MapTileSource>
-
-                    <ig:XamMap.Layers>
-                        <ig:MapLayer x:Name="hostMarkers" Brushes="Transparent"
-                                 Elements="{Binding MapElements}" ValueTemplate="{StaticResource TestTemplate}">
-                        </ig:MapLayer>
-                    </ig:XamMap.Layers>
-                </ig:XamMap>-->
-
                 <ig:XamGeographicMap x:Name="Map" >
                     <ig:XamGeographicMap.Series>
                         <ig:GeographicSymbolSeries ItemsSource="{Binding GeoPoints}" 
