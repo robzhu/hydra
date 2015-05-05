@@ -1,0 +1,14 @@
+{
+  "hosts": [
+    "localhost"
+  ],
+  "packages": [
+    "D:\\hydra_packages\\Hydra.Server.zip",
+    "D:\\hydra_packages\\Hydra.Client.zip"
+  ],
+  "projects": [
+    "D:\\git\\hydra\\Hydra.Server",
+    "D:\\git\\hydra\\Hydra.Client"
+  ],
+  "lastParameterInput": null
+}

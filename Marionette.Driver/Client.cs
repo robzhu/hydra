@@ -2,6 +2,7 @@
 using System.IO;
 using System.Net;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Rz.Http;
@@ -131,6 +132,19 @@ namespace Marionette.Driver
 
             var content = await response.Content.ReadAsStringAsync();
             return JsonConvert.DeserializeObject<ResourceCollection<ClientStatsResource>>( content );
+        }
+
+        public async Task SendClientStatsAsync( ClientStatsResource stats )
+        {
+            var route = "/ClientMetrics";
+
+            HttpRequestMessage request = new HttpRequestMessage( HttpMethod.Post, Address + route );
+            request.Content = new JsonContent( stats )
+            {
+                Headers = { ContentType = new MediaTypeHeaderValue( "application/json" ) }
+            };
+
+            var response = ( await _httpClient.SendAsync( request ) ).EnsureSuccessStatusCode();
         }
     }
 }

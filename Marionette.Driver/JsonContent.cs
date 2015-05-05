@@ -3,7 +3,7 @@ using System.Net.Http.Headers;
 using System.Text;
 using Newtonsoft.Json;
 
-namespace Hydra.Client
+namespace Marionette.Driver
 {
     public class JsonContent : StringContent
     {

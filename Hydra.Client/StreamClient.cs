@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Net.Http;
-using System.Net.Http.Headers;
 using System.Net.Sockets;
 using System.Threading.Tasks;
 using Hydra.Shared;
@@ -40,6 +39,9 @@ namespace Hydra.Client
         private IHubProxy _streamHubProxy;
         private Stopwatch _stopwatch = new Stopwatch();
         private HttpClient _httpClient = new HttpClient();
+
+        private Marionette.Driver.Client _client = new Marionette.Driver.Client( "localhost" );
+
         private string _serverUrl;
 
         public ScaleTestClient()
@@ -89,7 +91,7 @@ namespace Hydra.Client
                     Console.WriteLine( "Connecting to {0}, {1} retries left", url, retryOptions.Retries );
                     //await _hubConnection.Start();
                     await _hubConnection.Start( new LongPollingTransport() );
-                    Stats.Transport = _hubConnection.Transport.Name;
+                    InitializeStatsAsync().Wait();
                     Connected = true;
                     break;
                 }
@@ -107,6 +109,12 @@ namespace Hydra.Client
                 }
                 await Task.Delay( retryOptions.RetryInterval );
             }
+        }
+
+        private async Task InitializeStatsAsync()
+        {
+            Stats.Transport = _hubConnection.Transport.Name;
+            Stats.ClientLocation = await _client.GetHostLocationAsync();
         }
 
         public async Task<Pong> PingAsync()
@@ -153,15 +161,7 @@ namespace Hydra.Client
         public async Task SendStats()
         {
             Stats.Timestamp = DateTime.Now;
-            var url = "http://localhost:5050/clientMetrics";
-
-            HttpRequestMessage request = new HttpRequestMessage( HttpMethod.Post, url );
-            request.Content = new JsonContent( Stats )
-            {
-                Headers = { ContentType = new MediaTypeHeaderValue( "application/json" ) }
-            };
-
-            var response = ( await _httpClient.SendAsync( request ) ).EnsureSuccessStatusCode();
+            await _client.SendClientStatsAsync( Stats );
         }
     }
 }
